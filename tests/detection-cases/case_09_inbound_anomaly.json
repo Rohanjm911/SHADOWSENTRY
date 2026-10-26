@@ -1,0 +1,12 @@
+{
+  "rule_id": "RULE-09-INBOUND-ANOMALY",
+  "description": "Unsolicited inbound TCP SYN connection targeting sensitive port 445 (SMB)",
+  "source_ip": "10.10.10.200",
+  "dest_port": 445,
+  "protocol": "TCP",
+  "tcp_flags": {
+    "syn": true,
+    "ack": false
+  },
+  "expected_severity": "high"
+}

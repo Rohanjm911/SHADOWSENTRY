@@ -1,0 +1,25 @@
+{
+  "service": "http_decoy",
+  "probes": [
+    {
+      "method": "GET",
+      "path": "/.env",
+      "expected_code": 403
+    },
+    {
+      "method": "GET",
+      "path": "/admin",
+      "expected_code": 403
+    },
+    {
+      "method": "GET",
+      "path": "/robots.txt",
+      "expected_code": 200
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/auth",
+      "expected_code": 403
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+{
+  "service": "ssh_banner",
+  "banner_expected": "SSH-2.0-OpenSSH_8.9p1 Ubuntu-3ubuntu0.1",
+  "probe_action": "connect_and_read_banner"
+}

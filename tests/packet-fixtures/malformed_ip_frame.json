@@ -1,0 +1,5 @@
+{
+  "protocol": "CORRUPT",
+  "raw_hex": "ffffffffffff0000000000000800450000140000",
+  "expected_behavior": "safe_discard_no_panic"
+}

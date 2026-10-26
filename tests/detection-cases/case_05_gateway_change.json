@@ -1,0 +1,8 @@
+{
+  "rule_id": "RULE-05-GATEWAY-CHANGE",
+  "description": "Default gateway MAC address changed unexpectedly",
+  "gateway_ip": "192.168.1.1",
+  "previous_mac": "70:4F:57:A2:BB:01",
+  "new_mac": "AA:BB:CC:DD:EE:FF",
+  "expected_severity": "high"
+}

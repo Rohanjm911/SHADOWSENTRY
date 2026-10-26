@@ -1,0 +1,9 @@
+{
+  "rule_id": "RULE-04-SUSP-DNS",
+  "description": "Algorithmically generated high-entropy domain name query",
+  "domain": "x87ab29c4f091bc883adq01.malicious-domain-dga.top",
+  "record_type": "A",
+  "entropy_score": 4.12,
+  "length": 48,
+  "expected_severity": "high"
+}

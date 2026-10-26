@@ -1,0 +1,8 @@
+{
+  "rule_id": "RULE-02-BURST",
+  "description": "Sudden surge of 1500 packets within 5 seconds",
+  "packet_rate": 300,
+  "window_seconds": 5,
+  "protocol": "TCP",
+  "expected_severity": "medium"
+}

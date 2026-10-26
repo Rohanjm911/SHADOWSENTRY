@@ -1,0 +1,7 @@
+{
+  "protocol": "DNS",
+  "query_name": "google.com",
+  "query_type": "A",
+  "id": 4660,
+  "wire_hex": "12340100000100000000000006676f6f676c6503636f6d0000010001"
+}

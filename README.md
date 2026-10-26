@@ -1,8 +1,20 @@
+<p align="center">
+  <img src="docs/assets/hero_banner.svg" alt="SHADOWSENTRY Animated Hero Banner" width="100%"/>
+</p>
+
+<p align="center">
+  <img src="docs/assets/logo.png" alt="SHADOWSENTRY Logo" width="190px"/>
+</p>
+
 # SHADOWSENTRY
 
-### *Invisible Threats. Visible Intelligence.*
+<p align="center">
+  <a href="https://git.io/typing-svg">
+    <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=20&duration=2600&pause=1200&color=4C8DFF&center=true&vCenter=true&width=700&lines=Invisible+Threats.+Visible+Intelligence.;Wire-Speed+Packet+Inspection+with+Zero-Panic+Rust;10+Deterministic+%26+Explainable+Threat+Rules;Built-in+Local+Honeypot+Deception+Lab;Strictly+Local-First+Forensics+in+SQLite+(WAL)" alt="SHADOWSENTRY Features Typing Animation" />
+  </a>
+</p>
 
-<p align="left">
+<p align="center">
   <a href="https://microsoft.com"><img src="https://img.shields.io/badge/Platform-Windows%2010%20%7C%2011%20(x64)-0B0F14?style=for-the-badge&logo=windows&logoColor=0078D4" alt="Platform"/></a>
   <a href="https://tauri.app"><img src="https://img.shields.io/badge/Architecture-Tauri%202%20%7C%20Rust%20%7C%20React%2018-10161E?style=for-the-badge&logo=tauri&logoColor=24C8D8" alt="Framework"/></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-151D27?style=for-the-badge&logo=open-source-initiative&logoColor=35C98A" alt="License"/></a>
@@ -84,8 +96,8 @@ Engineered with a **strict offline-first, privacy-first posture**, SHADOWSENTRY 
    - Shannon entropy math calculation on domain labels to detect algorithmically generated domains (DGA) and DNS tunneling.
 
 3. **Opt-in Local Honeypot Deception Lab**
-   - **HTTP Decoy (`:8080`):** Emulates web servers and catches reconnaissance probes for `/.env`, `/admin`, `/wp-login.php`.
-   - **Administrative Portal Simulator (`:8088`):** Emulates internal router dashboards with simulated challenge-response authentication.
+   - **HTTP Decoy (`:8088`):** Emulates web servers and catches reconnaissance probes for `/.env`, `/admin`, `/wp-login.php`.
+   - **Administrative Portal Simulator (`:8443`):** Emulates internal router dashboards with simulated challenge-response authentication.
    - **SSH Banner Simulator (`:2222`):** Emulates OpenSSH banners and safely terminates client sockets upon handshake.
    - *Safeguards:* Bound to `127.0.0.1` by default, 5-second socket timeouts, 16 KB request body ceiling, and anti-pivot isolation.
 
@@ -94,9 +106,18 @@ Engineered with a **strict offline-first, privacy-first posture**, SHADOWSENTRY 
    - Sanitized CSV and JSON forensic export that strips internal OS paths and raw payload data.
    - One-click cryptographic-safe database purge with SQLite `VACUUM` to reclaim disk space.
 
+5. **Tactical SOC Audio & Web Audio Synthesizer**
+   - **Zero-Dependency Sound Generation:** Synthesizes audio cues entirely via native browser Web Audio API oscillators and gain envelopes with zero external MP3/WAV file downloads.
+   - **Explainable Audio Telemetry:** Distinct sound cues for diagnostic boot sequence, critical dual-pulse threat alerts, honeypot radar pings, packet capture toggles, and UI interactions.
+   - **Dedicated Controls & Audio Test Board:** One-click mute button in top navigation bar (`Volume2` / `VolumeX`) and full interactive testing soundboard inside Settings.
+
 ---
 
 ## 🛡️ 10 Explainable Detection Rules
+
+<p align="center">
+  <img src="docs/assets/threat_radar.svg" alt="Real-Time Detection Pipeline" width="100%"/>
+</p>
 
 Unlike opaque machine learning models that generate unexplainable anomaly scores, every alert in SHADOWSENTRY is **100% deterministic, evidence-backed, and explainable**:
 
@@ -109,7 +130,7 @@ Unlike opaque machine learning models that generate unexplainable anomaly scores
 | `RULE-05-GATEWAY-CHANGE` | Gateway Identity Change | Default gateway MAC address changes from previously verified baseline MAC. | Critical: Investigate potential ARP spoofing, rogue router injection, or Man-in-the-Middle. |
 | `RULE-06-ARP-ANOMALY` | ARP Cache Conflict | Same IP address claimed by two distinct MAC addresses on the local subnet. | Inspect network segment for IP address conflict or active ARP poisoning tools (Ettercap/Cain). |
 | `RULE-07-THREAT-INTEL` | Threat Intelligence Match | Outbound communication targeting known malicious C2 IP or botnet endpoint. | Isolate host from LAN; review active network sockets and running executable hashes. |
-| `RULE-08-HONEYPOT-INTERACTION` | Honeypot Probing Activity | Unsolicited connection attempt targeting local decoy services (:8080, :8088, :2222). | Identify internal host conducting lateral movement or automated subnet reconnaissance. |
+| `RULE-08-HONEYPOT-INTERACTION` | Honeypot Probing Activity | Unsolicited connection attempt targeting local decoy services (:8088, :8443, :2222). | Identify internal host conducting lateral movement or automated subnet reconnaissance. |
 | `RULE-09-INBOUND-ANOMALY` | Unsolicited Admin Port Inbound | Inbound TCP SYN targeting sensitive ports: 445 (SMB), 3389 (RDP), 1433 (MSSQL), 23 (Telnet). | Block inbound port at host firewall; verify if client is authorized administrative jumper. |
 | `RULE-10-CONFIG-CHANGE` | Monitoring State Alteration | Network interface link transition, IP change, or capture subsystem toggle. | Audit administrative access logs to verify if capture pause was an intentional user action. |
 
@@ -122,32 +143,32 @@ Unlike opaque machine learning models that generate unexplainable anomaly scores
 ### 1. Host Runtimes & Compilers
 | Logo | Technology | Role in SHADOWSENTRY |
 | :---: | :--- | :--- |
-| <img src="https://cdn.simpleicons.org/windows11/0078D4" width="30" height="30" alt="Windows 11"/> | **Windows 10 / 11 (x64)** | Host operating system. Leverages Windows Sockets 2, IP Helper API, and Win32 tokens. |
-| <img src="https://cdn.simpleicons.org/microsoftedge/0078D4" width="30" height="30" alt="WebView2"/> | **Microsoft Edge WebView2** | Native desktop UI rendering container embedded in Tauri 2 window frames. |
-| <img src="https://cdn.simpleicons.org/rust/DEA584" width="30" height="30" alt="Rust"/> | **Rust 1.75+ (MSVC)** | Native systems security core, zero-panic wire parser, and SQLite event pipeline. |
-| <img src="https://cdn.simpleicons.org/visualstudio/5C2D91" width="30" height="30" alt="MSVC"/> | **VS C++ Build Tools** | Linker (`link.exe`) and Windows SDK headers for the `x86_64-pc-windows-msvc` target. |
-| <img src="https://cdn.simpleicons.org/nodedotjs/5FA04E" width="30" height="30" alt="Node.js"/> | **Node.js v18+ & npm** | Build tooling, TypeScript compiler execution, and Vite production asset bundling. |
-| <img src="https://cdn.simpleicons.org/python/3776AB" width="30" height="30" alt="Python"/> | **Python 3.10+** | Automated test fixture generation and honeypot validation probe scripts. |
-| <img src="https://cdn.simpleicons.org/wireshark/1679A7" width="30" height="30" alt="Npcap"/> | **Npcap Driver** *(Optional)* | Promiscuous Layer-2 Ethernet capture and raw frame sniffing. |
+| <img src="docs/assets/logos/windows.svg" width="28" height="28" alt="Windows 11"/> | **Windows 10 / 11 (x64)** | Host operating system. Leverages Windows Sockets 2, IP Helper API, and Win32 tokens. |
+| <img src="docs/assets/logos/microsoftedge.svg" width="28" height="28" alt="WebView2"/> | **Microsoft Edge WebView2** | Native desktop UI rendering container embedded in Tauri 2 window frames. |
+| <img src="docs/assets/logos/rust.svg" width="28" height="28" alt="Rust"/> | **Rust 1.75+ (MSVC)** | Native systems security core, zero-panic wire parser, and SQLite event pipeline. |
+| <img src="docs/assets/logos/visualstudio.svg" width="28" height="28" alt="MSVC"/> | **VS C++ Build Tools** | Linker (`link.exe`) and Windows SDK headers for the `x86_64-pc-windows-msvc` target. |
+| <img src="docs/assets/logos/nodedotjs.svg" width="28" height="28" alt="Node.js"/> | **Node.js v18+ & npm** | Build tooling, TypeScript compiler execution, and Vite production asset bundling. |
+| <img src="docs/assets/logos/python.svg" width="28" height="28" alt="Python"/> | **Python 3.10+** | Automated test fixture generation and honeypot validation probe scripts. |
+| <img src="docs/assets/logos/wireshark.svg" width="28" height="28" alt="Npcap"/> | **Npcap Driver** *(Optional)* | Promiscuous Layer-2 Ethernet capture and raw frame sniffing. |
 
 ### 2. Frontend Application Stack (Node.js / npm)
 | Logo | Package | Purpose |
 | :---: | :--- | :--- |
-| <img src="https://cdn.simpleicons.org/react/61DAFB" width="30" height="30" alt="React"/> | **React 18** | Reactive desktop components, real-time packet rendering, and interactive timeline state. |
-| <img src="https://cdn.simpleicons.org/typescript/3178C6" width="30" height="30" alt="TypeScript"/> | **TypeScript 5.7** | Strict type safety across packet models, forensic filters, and IPC payloads. |
-| <img src="https://cdn.simpleicons.org/vite/646CFF" width="30" height="30" alt="Vite"/> | **Vite 6** | Ultra-fast asset bundler that compiles HTML/JS into zero-gradient embedded UI assets. |
-| <img src="https://cdn.simpleicons.org/tauri/24C8D8" width="30" height="30" alt="Tauri"/> | **@tauri-apps/api** | Hardened type-safe IPC command bridge connecting React UI with Rust security core. |
-| <img src="https://cdn.simpleicons.org/lucide/F56565" width="30" height="30" alt="Lucide"/> | **Lucide React** | Precise, sharp technical iconography for network tables, threat indicators, and protocols. |
+| <img src="docs/assets/logos/react.svg" width="28" height="28" alt="React"/> | **React 18** | Reactive desktop components, real-time packet rendering, and interactive timeline state. |
+| <img src="docs/assets/logos/typescript.svg" width="28" height="28" alt="TypeScript"/> | **TypeScript 5.7** | Strict type safety across packet models, forensic filters, and IPC payloads. |
+| <img src="docs/assets/logos/vite.svg" width="28" height="28" alt="Vite"/> | **Vite 6** | Ultra-fast asset bundler that compiles HTML/JS into zero-gradient embedded UI assets. |
+| <img src="docs/assets/logos/tauri.svg" width="28" height="28" alt="Tauri"/> | **@tauri-apps/api** | Hardened type-safe IPC command bridge connecting React UI with Rust security core. |
+| <img src="docs/assets/logos/lucide.svg" width="28" height="28" alt="Lucide"/> | **Lucide React** | Precise, sharp technical iconography for network tables, threat indicators, and protocols. |
 
 ### 3. Backend Security Core (Rust / Cargo)
 | Logo | Crate | Purpose |
 | :---: | :--- | :--- |
-| <img src="https://cdn.simpleicons.org/tauri/24C8D8" width="30" height="30" alt="Tauri"/> | **`tauri` (v2)** | Window management, menu actions, tray integration, and scoped IPC commands. |
-| <img src="https://cdn.simpleicons.org/tokio/DEA584" width="30" height="30" alt="Tokio"/> | **`tokio` (v1)** | Asynchronous multi-threaded runtime powering packet sniffing and honeypot listeners. |
-| <img src="https://cdn.simpleicons.org/sqlite/003B57" width="30" height="30" alt="SQLite"/> | **`rusqlite` (v0.31)** | Bundled C SQLite 3 engine with WAL mode for zero-latency local persistent storage. |
-| <img src="https://cdn.simpleicons.org/windows/0078D4" width="30" height="30" alt="Windows"/> | **`windows-sys`** | Low-level WinSock 2 (`SOCK_RAW`) and IP Helper (`GetIpNetTable`) API bindings. |
-| <img src="https://cdn.simpleicons.org/rust/DEA584" width="30" height="30" alt="Serde"/> | **`serde` & `serde_json`** | Zero-copy serialization of packet streams, alert evidence, and forensic queries. |
-| <img src="https://cdn.simpleicons.org/rust/DEA584" width="30" height="30" alt="Libloading"/> | **`libloading`** | Dynamic runtime loader that checks for `wpcap.dll` without binary crashes. |
+| <img src="docs/assets/logos/tauri.svg" width="28" height="28" alt="Tauri"/> | **`tauri` (v2)** | Window management, menu actions, tray integration, and scoped IPC commands. |
+| <img src="docs/assets/logos/rust.svg" width="28" height="28" alt="Tokio"/> | **`tokio` (v1)** | Asynchronous multi-threaded runtime powering packet sniffing and honeypot listeners. |
+| <img src="docs/assets/logos/sqlite.svg" width="28" height="28" alt="SQLite"/> | **`rusqlite` (v0.31)** | Bundled C SQLite 3 engine with WAL mode for zero-latency local persistent storage. |
+| <img src="docs/assets/logos/windows_crate.svg" width="28" height="28" alt="Windows"/> | **`windows-sys`** | Low-level WinSock 2 (`SOCK_RAW`) and IP Helper (`GetIpNetTable`) API bindings. |
+| <img src="docs/assets/logos/rust.svg" width="28" height="28" alt="Serde"/> | **`serde` & `serde_json`** | Zero-copy serialization of packet streams, alert evidence, and forensic queries. |
+| <img src="docs/assets/logos/rust.svg" width="28" height="28" alt="Libloading"/> | **`libloading`** | Dynamic runtime loader that checks for `wpcap.dll` without binary crashes. |
 
 ---
 
@@ -176,8 +197,8 @@ SHADOWSENTRY is divided into four strictly isolated layers to guarantee security
 │  └──────────────────────┘ └──────────────────────┘ └─────────────────┘ │
 │  ┌──────────────────────┐ ┌──────────────────────┐ ┌─────────────────┐ │
 │  │  Honeypot Decoy Lab  │ │   Network Discovery  │ │ Local SQLite DB │ │
-│  │  - HTTP Decoy (8080) │ │   - Win32 IP Helper  │ │ - WAL Mode      │ │
-│  │  - Admin Port (8088) │ │   - Gateway Polling  │ │ - Sanitized Exp │ │
+│  │  - HTTP Decoy (8088) │ │   - Win32 IP Helper  │ │ - WAL Mode      │ │
+│  │  - Admin Port (8443) │ │   - Gateway Polling  │ │ - Sanitized Exp │ │
 │  │  - SSH Banner (2222) │ │   - ARP Cache Table  │ │ - Fast Vacuum   │ │
 │  └──────────────────────┘ └──────────────────────┘ └─────────────────┘ │
 └───────────────────────────────────┬────────────────────────────────────┘
@@ -190,20 +211,63 @@ SHADOWSENTRY is divided into four strictly isolated layers to guarantee security
 
 ---
 
-## 🖥️ Desktop Interface Tour (8 Panels)
+## 🖥️ Desktop Interface Tour (8 Panels & Interactive Guide)
 
-SHADOWSENTRY provides eight technical investigation workspaces accessible via top tabs or keyboard shortcuts:
+SHADOWSENTRY provides eight technical investigation workspaces accessible via the left navigation sidebar, top status bar, or keyboard shortcuts.
 
-| Shortcut | Workspace | Core Functionality |
-| :---: | :--- | :--- |
-| `Ctrl + 1` | **Dashboard** | Bandwidth rate graphs, active threat counter, recent alert feed, and capture engine status badge. |
-| `Ctrl + 2` | **Live Traffic** | High-throughput streaming packet inspector with protocol filters (TCP/UDP/ICMP/DNS) and hex inspector. |
-| `Ctrl + 3` | **Alerts & Detections** | Explainable security alerts showing observed evidence, trigger rationale, uncertainty, and next steps. |
-| `Ctrl + 4` | **DNS Intelligence** | Query log stream, record types (A, AAAA, MX, TXT, CNAME), and Shannon entropy score gauge. |
-| `Ctrl + 5` | **Honeypot Lab** | Opt-in decoy services (HTTP :8080, Admin :8088, SSH :2222), listener toggles, and probe logs. |
-| `Ctrl + 6` | **Host Discovery** | Active Win32 ARP table, discovered host IP/MAC table, and default gateway identity baseline monitor. |
-| `Ctrl + 7` | **Forensics & Export** | Multi-attribute query search, sanitized CSV/JSON forensic report generation, and database wipe. |
-| `Ctrl + 8` | **System Settings** | Configurable heuristic thresholds, memory ring buffer limits, theme switches, and status logs. |
+### 1. Interactive Walkthrough & How to Use Guide (`How to Use` Button)
+> An onboard 6-chapter interactive SOC tutorial with rich UI previews, capture mode comparisons, and direct tab navigation.
+<p align="center">
+  <img src="docs/assets/screenshots/07_tutorial_guide.png" width="95%" alt="Interactive User Guide and Tutorial Walkthrough"/>
+</p>
+
+### 2. Sequential Subsystem Initialization & Smooth Splash Screen
+> A 7-second diagnostic boot sequence with animated mascot, progressive driver ingestion (WinSock ➔ Npcap ➔ SQLite ➔ Heuristics ➔ Honeypot), and a butter-smooth 850ms cinematic cross-dissolve into the mission dashboard.
+<p align="center">
+  <img src="docs/assets/screenshots/01_startup_splash.png" width="95%" alt="Sequential Diagnostic Boot Sequence"/>
+</p>
+
+### 3. Mission Control Dashboard (`Ctrl + 1`)
+> Real-time wire-speed bandwidth telemetry, protocol distribution graphs, active threat counter, recent explainable findings, and primary monitoring engine controls.
+<p align="center">
+  <img src="docs/assets/screenshots/02_main_dashboard.png" width="95%" alt="Mission Control Security Dashboard"/>
+</p>
+
+### 4. Wire-Speed Live Traffic Inspector (`Ctrl + 2`)
+> High-throughput streaming packet inspector with protocol filters (TCP/UDP/ICMP/DNS), byte-level hex viewer, and sub-millisecond timeline tracking.
+<p align="center">
+  <img src="docs/assets/screenshots/03_live_traffic.png" width="95%" alt="Live Traffic Stream and Hex Inspector"/>
+</p>
+
+### 5. Explainable Threat Center — 10 Defense Rules (`Ctrl + 3`)
+> Correlated detection engine highlighting port scans, SYN floods, ARP spoofing, rogue gateway shifts, and suspicious inbound connections with observed evidence and MITRE ATT&CK mapping.
+<p align="center">
+  <img src="docs/assets/screenshots/04_threat_center.png" width="95%" alt="Explainable Threat Center and 10 Rules"/>
+</p>
+
+### 6. Shannon DNS Entropy & DGA Heuristics (`Ctrl + 4`)
+> Continuous domain query analysis scoring character entropy (>3.80 bits/char) to isolate malware Command & Control (C2) beaconing and DNS tunneling.
+<p align="center">
+  <img src="docs/assets/screenshots/05_dns_intelligence.png" width="95%" alt="DNS Intelligence and Shannon Entropy"/>
+</p>
+
+### 7. Opt-In Local Honeypot Deception Lab (`Ctrl + 5`)
+> Three safe loopback decoy services (HTTP `:8088`, Admin Portal `:8443`, SSH Simulator `:2222`) equipped with 1-click test attack simulation and real-time probe logging.
+<p align="center">
+  <img src="docs/assets/screenshots/06_honeypot_lab.png" width="95%" alt="Honeypot Deception Core"/>
+</p>
+
+### 8. Forensic Audit History & Sanitized Export (`Ctrl + 6`)
+> Permanent local SQLite database records with multi-attribute search, payload sanitization, and structured JSON / CSV report generation.
+<p align="center">
+  <img src="docs/assets/screenshots/08_event_history.png" width="95%" alt="Forensics Event History and Export"/>
+</p>
+
+### 9. Heuristic Thresholds & Zero-Cloud Privacy Controls (`Ctrl + 7`)
+> Complete user control over port scan thresholds, Shannon entropy cutoffs, ring buffer memory ceilings, and database retention policies.
+<p align="center">
+  <img src="docs/assets/screenshots/09_settings_privacy.png" width="95%" alt="Settings, Thresholds, and Privacy Controls"/>
+</p>
 
 ---
 
@@ -242,7 +306,7 @@ Test result: 14 passed; 0 failed.
 # Generate all detection cases and honeypot test scenarios:
 python tools/generate_test_packets.py
 
-# Send an authorized test reconnaissance probe to the HTTP Decoy (Port 8080):
+# Send an authorized test reconnaissance probe to the HTTP Decoy (Port 8088):
 python tools/generate_test_packets.py --test-http
 
 # Send an authorized test handshake to the SSH Simulator (Port 2222):

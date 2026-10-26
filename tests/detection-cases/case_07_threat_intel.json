@@ -1,0 +1,8 @@
+{
+  "rule_id": "RULE-07-THREAT-INTEL",
+  "description": "Outbound connection to known malicious C2 IP address",
+  "matched_ip": "185.220.101.5",
+  "protocol": "TCP",
+  "dest_port": 443,
+  "expected_severity": "critical"
+}

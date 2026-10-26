@@ -1,0 +1,9 @@
+{
+  "rule_id": "RULE-03-CONN-FAILURES",
+  "description": "Repeated TCP RST packets indicating rejected connection attempts",
+  "source_ip": "192.168.1.55",
+  "target_ip": "192.168.1.10",
+  "rst_count": 25,
+  "window_seconds": 10,
+  "expected_severity": "medium"
+}

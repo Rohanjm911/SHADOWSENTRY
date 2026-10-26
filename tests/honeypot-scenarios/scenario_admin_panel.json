@@ -1,0 +1,20 @@
+{
+  "service": "admin_panel",
+  "probes": [
+    {
+      "method": "GET",
+      "path": "/login",
+      "expected_code": 200
+    },
+    {
+      "method": "POST",
+      "path": "/login",
+      "expected_code": 401
+    },
+    {
+      "method": "GET",
+      "path": "/dashboard",
+      "expected_code": 302
+    }
+  ]
+}

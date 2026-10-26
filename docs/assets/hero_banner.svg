@@ -1,0 +1,161 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 220" width="100%" height="220">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#080C10" />
+      <stop offset="50%" stop-color="#0D131A" />
+      <stop offset="100%" stop-color="#121A24" />
+    </linearGradient>
+
+    <!-- Radar Sweep Gradient -->
+    <linearGradient id="radarSweep" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#4C8DFF" stop-opacity="0" />
+      <stop offset="80%" stop-color="#4C8DFF" stop-opacity="0.25" />
+      <stop offset="100%" stop-color="#4C8DFF" stop-opacity="0.8" />
+    </linearGradient>
+
+    <!-- Waveform Gradient -->
+    <linearGradient id="waveGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#4C8DFF" />
+      <stop offset="50%" stop-color="#35C98A" />
+      <stop offset="100%" stop-color="#4C8DFF" />
+    </linearGradient>
+
+    <style>
+      .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
+      .sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+      
+      @keyframes pulseDot {
+        0%, 100% { transform: scale(1); opacity: 1; }
+        50% { transform: scale(2.2); opacity: 0; }
+      }
+      @keyframes radarSpin {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+      }
+      @keyframes dashFlow {
+        from { stroke-dashoffset: 200; }
+        to { stroke-dashoffset: 0; }
+      }
+      @keyframes barPulse1 { 0%, 100% { height: 18px; } 50% { height: 38px; } }
+      @keyframes barPulse2 { 0%, 100% { height: 32px; } 50% { height: 12px; } }
+      @keyframes barPulse3 { 0%, 100% { height: 26px; } 50% { height: 44px; } }
+      @keyframes barPulse4 { 0%, 100% { height: 40px; } 50% { height: 20px; } }
+      @keyframes barPulse5 { 0%, 100% { height: 14px; } 50% { height: 34px; } }
+      @keyframes glowFade {
+        0%, 100% { opacity: 0.7; }
+        50% { opacity: 1; filter: drop-shadow(0 0 8px #4C8DFF); }
+      }
+
+      .pulse-ring { transform-origin: 730px 42px; animation: pulseDot 2s ease-out infinite; }
+      .radar-arm { transform-origin: 105px 110px; animation: radarSpin 5s linear infinite; }
+      .flow-line { stroke-dasharray: 8 6; animation: dashFlow 4s linear infinite; }
+      .glow-title { animation: glowFade 3s ease-in-out infinite; }
+      .b1 { animation: barPulse1 1.4s ease-in-out infinite; }
+      .b2 { animation: barPulse2 1.8s ease-in-out infinite 0.2s; }
+      .b3 { animation: barPulse3 1.2s ease-in-out infinite 0.4s; }
+      .b4 { animation: barPulse4 1.6s ease-in-out infinite 0.1s; }
+      .b5 { animation: barPulse5 1.5s ease-in-out infinite 0.3s; }
+    </style>
+  </defs>
+
+  <!-- Background Base Canvas -->
+  <rect width="900" height="220" rx="10" fill="url(#bgGradient)" stroke="#1F2A38" stroke-width="1.5" />
+
+  <!-- Subtle Cyber Grid -->
+  <g stroke="#16202C" stroke-width="0.8" opacity="0.6">
+    <line x1="0" y1="55" x2="900" y2="55" />
+    <line x1="0" y1="110" x2="900" y2="110" />
+    <line x1="0" y1="165" x2="900" y2="165" />
+    <line x1="210" y1="0" x2="210" y2="220" />
+    <line x1="430" y1="0" x2="430" y2="220" />
+    <line x1="650" y1="0" x2="650" y2="220" />
+  </g>
+
+  <!-- Corner Tactical Brackets -->
+  <g stroke="#4C8DFF" stroke-width="2" fill="none" opacity="0.85">
+    <path d="M 12 24 L 12 12 L 24 12" />
+    <path d="M 888 24 L 888 12 L 876 12" />
+    <path d="M 12 196 L 12 208 L 24 208" />
+    <path d="M 888 196 L 888 208 L 876 208" />
+  </g>
+
+  <!-- Radar Subsystem on Left -->
+  <g>
+    <!-- Concentric Range Circles -->
+    <circle cx="105" cy="110" r="75" fill="#0C121A" stroke="#1D2A3A" stroke-width="1.5" />
+    <circle cx="105" cy="110" r="50" fill="none" stroke="#25364A" stroke-width="1" stroke-dasharray="3 3" />
+    <circle cx="105" cy="110" r="25" fill="none" stroke="#2A3D54" stroke-width="1" />
+    
+    <!-- Crosshairs -->
+    <line x1="30" y1="110" x2="180" y2="110" stroke="#1D2A3A" stroke-width="1" />
+    <line x1="105" y1="35" x2="105" y2="185" stroke="#1D2A3A" stroke-width="1" />
+    
+    <!-- Rotating Sweep Beam -->
+    <g class="radar-arm">
+      <polygon points="105,110 180,95 180,125" fill="url(#radarSweep)" />
+      <line x1="105" y1="110" x2="180" y2="110" stroke="#4C8DFF" stroke-width="1.5" opacity="0.9" />
+    </g>
+
+    <!-- Radar Target Blips -->
+    <circle cx="135" cy="85" r="3" fill="#FF4C4C">
+      <animate attributeName="opacity" values="1;0.2;1" dur="2s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="75" cy="140" r="2.5" fill="#35C98A">
+      <animate attributeName="opacity" values="0.3;1;0.3" dur="1.6s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="150" cy="130" r="2.5" fill="#4C8DFF">
+      <animate attributeName="opacity" values="0.8;0.2;0.8" dur="2.4s" repeatCount="indefinite" />
+    </circle>
+  </g>
+
+  <!-- Center Content: Title & Intelligence Metrics -->
+  <g transform="translate(225, 0)">
+    <!-- Security Classification Tag -->
+    <rect x="0" y="28" width="220" height="22" rx="4" fill="#131C27" stroke="#26374D" stroke-width="1" />
+    <text x="10" y="43" fill="#4C8DFF" font-size="10.5" font-weight="700" class="mono" letter-spacing="1.2">SEC_OPS // LOCAL ENGINE</text>
+
+    <!-- Project Title -->
+    <text x="0" y="98" fill="#FFFFFF" font-size="34" font-weight="900" class="sans glow-title" letter-spacing="3.5">SHADOWSENTRY</text>
+
+    <!-- Project Subtitle -->
+    <text x="2" y="126" fill="#8EA1B8" font-size="13.5" font-weight="500" class="sans" letter-spacing="0.5">
+      Invisible Threats. <tspan fill="#4C8DFF" font-weight="700">Visible Intelligence.</tspan>
+    </text>
+
+    <!-- Streaming Wire Status Data -->
+    <path class="flow-line" d="M 2 155 L 430 155" stroke="#27394E" stroke-width="2" />
+    <path class="flow-line" d="M 2 155 L 280 155" stroke="url(#waveGradient)" stroke-width="2" opacity="0.9" />
+
+    <text x="2" y="180" fill="#5E738C" font-size="11" class="mono">ENGINE: <tspan fill="#DDE4ED">RUST 2021</tspan> | PRIV: <tspan fill="#35C98A">LEAST_PRIVILEGE</tspan> | TELEMETRY: <tspan fill="#FF7B72">DISABLED</tspan></text>
+    <text x="2" y="198" fill="#5E738C" font-size="11" class="mono">CAPTURE: <tspan fill="#4C8DFF">RAW_SOCKETS + NPCAP</tspan> | STORE: <tspan fill="#35C98A">LOCAL_SQLITE_WAL</tspan></text>
+  </g>
+
+  <!-- Right Visualizer: Live Ingestion Waveform & Pulsing Status -->
+  <g transform="translate(710, 0)">
+    <!-- Status Badge -->
+    <rect x="0" y="28" width="165" height="28" rx="6" fill="#0E1E16" stroke="#1D4E35" stroke-width="1.2" />
+    
+    <!-- Pulsing Green Dot -->
+    <circle cx="20" cy="42" r="7" fill="#35C98A" opacity="0.3" class="pulse-ring" />
+    <circle cx="20" cy="42" r="3.5" fill="#35C98A" />
+    <text x="34" y="47" fill="#35C98A" font-size="11" font-weight="700" class="mono" letter-spacing="0.8">LIVE MONITOR</text>
+
+    <!-- Real-time Packet Ingestion Bars -->
+    <g transform="translate(10, 110)">
+      <rect x="0" y="0" width="8" class="b1" rx="2" fill="#4C8DFF" opacity="0.85" />
+      <rect x="14" y="0" width="8" class="b2" rx="2" fill="#35C98A" opacity="0.85" />
+      <rect x="28" y="0" width="8" class="b3" rx="2" fill="#4C8DFF" opacity="0.85" />
+      <rect x="42" y="0" width="8" class="b4" rx="2" fill="#35C98A" opacity="0.95" />
+      <rect x="56" y="0" width="8" class="b5" rx="2" fill="#4C8DFF" opacity="0.85" />
+      <rect x="70" y="0" width="8" class="b2" rx="2" fill="#35C98A" opacity="0.8" />
+      <rect x="84" y="0" width="8" class="b4" rx="2" fill="#4C8DFF" opacity="0.9" />
+      <rect x="98" y="0" width="8" class="b1" rx="2" fill="#35C98A" opacity="0.85" />
+      <rect x="112" y="0" width="8" class="b3" rx="2" fill="#4C8DFF" opacity="0.85" />
+      <rect x="126" y="0" width="8" class="b5" rx="2" fill="#35C98A" opacity="0.8" />
+    </g>
+
+    <!-- Throughput Counter Tag -->
+    <text x="14" y="195" fill="#8EA1B8" font-size="10.5" class="mono">INGESTION: <tspan fill="#35C98A" font-weight="700">100% REAL</tspan></text>
+  </g>
+</svg>

@@ -1,0 +1,9 @@
+{
+  "rule_id": "RULE-06-ARP-ANOMALY",
+  "description": "Gateway IP 192.168.1.1 mapped to conflicting secondary MAC",
+  "target_ip": "192.168.1.1",
+  "legitimate_mac": "70:4F:57:A2:BB:01",
+  "conflicting_mac": "00:11:22:33:44:99",
+  "opcode": 2,
+  "expected_severity": "critical"
+}

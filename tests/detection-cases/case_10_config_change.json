@@ -1,0 +1,6 @@
+{
+  "rule_id": "RULE-10-CONFIG-CHANGE",
+  "description": "Monitoring network interface disconnected during active session",
+  "event_summary": "Primary network adapter transitioned to Down state",
+  "expected_severity": "medium"
+}

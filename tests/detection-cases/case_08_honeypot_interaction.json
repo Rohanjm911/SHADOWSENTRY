@@ -1,0 +1,8 @@
+{
+  "rule_id": "RULE-08-HONEYPOT-INTERACTION",
+  "description": "Repeated probe against local decoy service",
+  "service": "HttpDecoy",
+  "client_ip": "192.168.1.200",
+  "target_path": "/.env",
+  "expected_severity": "critical"
+}
